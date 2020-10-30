@@ -1,0 +1,80 @@
+/*对hand设置过渡*/
+.hand-enter-active,
+.hand-leave-active {
+    transition: opacity 1s;
+}
+.hand-enter,
+.hand-leave-to {
+    opacity: 0;
+}
+.hand-enter-to,
+.hand-leave {
+    opacity: 1;
+}
+.hand-enter-active .wrapper,
+.hand-leave-active .wrapper{
+    transition: transform .8s cubic-bezier(.08, .74, .34, 1);
+    transform-origin: bottom center;
+}
+.hand-enter .wrapper,
+.hand-leave-to .wrapper {
+    transform: rotateX(90deg);
+}
+
+.hand-enter-active .card,
+.hand-leave-active .card {
+    transition: margin .8s cubic-bezier(.08, .74, .34, 1);
+}
+.hand-enter .card,
+.hand-leave-to .card {
+    margin:0 -100px;
+}
+
+
+.card {
+    pointer-events: auto;
+}
+.wrapper {
+    pointer-events: none;
+}
+
+/*对card设置过渡*/
+.card {
+    transition: all .3s;
+}
+/*.card-enter {
+    opacity: 0;
+    transform: translateX(100px);
+}*/
+.card-enter-active {
+    opacity: 0;
+    position: absolute !important;
+    transform: translateX(-100px);
+}
+
+.card-move {
+     transition: transform .3s;
+ }
+
+.card-leave-to {
+    opacity: 0;
+    transform: translateX(-106px) translateY(-300px) scale(1.5);
+}
+.card-leave-active {
+    transition: all 1s, opacity .5s .5s;
+    position: absolute !important;
+    z-index: 10;
+    /*在过渡期间不允许单击*/
+    pointer-events: none;
+}
+
+/*浮层动画*/
+.zoom-enter-active,
+.zoom-leave-active {
+    transition: transform .3s, opacity .3s;
+}
+.zoom-enter,
+.zoom-leave-to {
+    opacity: 0;
+    transform: scale(.7);
+}
